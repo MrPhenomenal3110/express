@@ -39,6 +39,20 @@ app.post("/courses", (req, res)=> {
     res.send(200);
 
 })
+app.put("/courses/:id", (req, res) => {
+    const ID = parseInt(req.params["id"]);
+    const data = req.body.name;
+
+    courses[ID-1].name = data;
+    res.send(200);
+
+})
+
+app.delete("/courses/:id", (req, res) => {
+    const ID = parseInt(req.params["id"]);
+    courses.splice(ID-1, 1);
+    res.send(200);
+})
 
 app.listen(PORT, ()=> {
     console.log(`Listening at port: ${PORT}`);
