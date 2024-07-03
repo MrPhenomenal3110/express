@@ -3,6 +3,12 @@ const express = require("express");
 const app = express();
 
 app.use(express.json());
+app.use(middleware);
+
+function middleware(req, res, next) {
+    console.log("called");
+    next();
+}
 
 const PORT = 5137;
 
